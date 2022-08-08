@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "Alma Digital: Universal Viewer issues"
-date: 2022-08-04
+title: "Alma Digital: issues with the Universal Viewer"
+date: 2022-08-08
 ---
-<p>My first week working on the Fellowship was spent identifying, testing, and documenting some recent issues with <a href="https://librarysearch.cardiff.ac.uk/discovery/collectionDiscovery?vid=44WHELF_CAR:44WHELF_CAR_VU1">Alma Digital</a>'s implementation of the Universal Viewer, which seem to have arisen around the middle of June. The Universal Viewer is designed to work with IIIF-enabled images, allowing them to be shared and embedded in other platforms.  I recorded a demonstration on June 2nd where I demoed this functionality successfully, and none of the following issues existed. When I gave the same presentation a week later, these problems arose - so something must have been changed around that time. I also realised that a resource guide I'd built in May, using embedded IIIF content from Alma Digital, was now failing to render any of the images. Being unable to dedicate sufficient time to explore this, I removed the empty iframes and launched the resource without embedded images.</p>
-<p>While this has been a frustrating start to the project (which entirely depends on being able to re-use Alma Digital objects in third party tools), it's an example of the way in which the Fellowship has given me much-needed time to unpick issues like this - which affect not just Cardiff University but all Alma Digital customers. In addition, this blog hosted on GitHub, gives me the ability to <emp>show</emp> embed behaviour and not just describe it.</p>
+<p>My first week working on the Fellowship was spent identifying, testing, and documenting some recent issues with <a href="https://librarysearch.cardiff.ac.uk/discovery/collectionDiscovery?vid=44WHELF_CAR:44WHELF_CAR_VU1">Alma Digital</a>'s implementation of the Universal Viewer. The Universal Viewer is designed to work with IIIF-enabled images, allowing them to be shared and embedded in other platforms, but I've recently encountered several problems with this functionality.</p>
+<!--more-->
+<p>Last month, I discovered that a resource guide I'd helped a student build back in May, using embedded IIIF images from Alma Digital, was now failing to render any of the iframes. Facing a deadline and being unable to dedicate sufficient time to explore this in depth, I simply removed the blank iframes and we launched the resource without embedded images, which was much poorer for it. On 2nd June, I recorded a Zoom presentation where I demonstrated being able to zoom into a detail of an object, copy a share link, and paste the detail into a new location. When I gave the same presentation a week later, this didn't work - so something must have changed around mid-June.</p>
+<p>While this has been a frustrating start to the project (which entirely depends on being able to re-use Alma Digital objects in third party tools), it's an example of the way in which the Fellowship is giving me much-needed time to unpick issues like this - which affect not just Cardiff University but all Alma Digital customers. In addition, as this blog is hosted on GitHub (a post on this coming soon), it gives me the ability to clearly show and demonstrate embed behaviour, not just describe it, complete with source code.</p>
 <p>This post will outline and demonstrate the features no longer functioning in the Universal Viewer Alma Digital</a>, as of early June 2022. I'm in contact with Ex Libris, but advice from others on what may be causing this would be greatly appreciated:</p>
 <ol><li>Cannot copy embed code from the viewer to create an iframe in an external resource</li>
 <li>Zoom/position coordinates (xywh values) missing from url (viewing position cannot be captured by share link)</li>
@@ -16,7 +18,7 @@ date: 2022-08-04
     <li><a href="https://iiif-preview.stephen.wf/p3/bac2add2dc71464685744c29c526a1e6/1659949123364">Direct link to json</a></li>
     </li></p>
     </ul>
-<!--more-->
+
 <h3><p>1. Cannot copy embed code from <a href="https://librarysearch.cardiff.ac.uk/view/UniversalViewer/44WHELF_CAR/12206137520002420?iiifVersion=2&updateStatistics=false">the viewer</a> to create an iframe in an external resource. Examples below:</p></h3>
 <p>
 Embedding at 640x480 - content won't load
