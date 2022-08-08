@@ -3,9 +3,12 @@ layout: post
 title: "Universal Viewer issues - embedding and persisent urls"
 date: 2022-08-03
 ---
-<p>Issues with UV display.</p>
+<p>UV features no longer functioning, as of early June 2022:</p>
+<ol><li>Copying embed code from the viewer to create an iframe in an external resource</li>
+<li>Retaining zoom/position coordinates via share/embed links</li>
+<li>Pasting manifest to viewer prefixes</li></ol> </p>
 <!--more-->
-<h3><p>1. Universal Viewer has stopped embedding correctly. Below are some examples:</p></h3>
+<h3><p>1. Copying embed code from <a href="https://librarysearch.cardiff.ac.uk/view/UniversalViewer/44WHELF_CAR/12206137520002420?iiifVersion=2&updateStatistics=false">the viewer</a> to create an iframe in an external resource. Examples below:</p></h3>
 <p>
 Embedding at 640x480 - content won't load
 <iframe src="https://librarysearch.cardiff.ac.uk/view/UniversalViewer/44WHELF_CAR/12206137520002420?iiifVersion=2&updateStatistics=false&c=0&m=0&s=0&cv=0&config=&locales=en-GB:English (GB),cy-GB:Cymraeg,fr-FR:Français (FR),pl-PL:Polski,sv-SE:Svenska,xx-XX:English (GB) (xx-XX)&xywh=-4174,-277,11956,6093&r=0" width="640" height="480" allowfullscreen frameborder="0"></iframe>
@@ -19,17 +22,12 @@ Embedding at custom (1000x800) - widening the embedded object doesn't resolve th
 <iframe src="https://librarysearch.cardiff.ac.uk/view/UniversalViewer/44WHELF_CAR/12206137520002420?iiifVersion=2&updateStatistics=false&c=0&m=0&s=0&cv=0&config=&locales=en-GB:English (GB),cy-GB:Cymraeg,fr-FR:Français (FR),pl-PL:Polski,sv-SE:Svenska,xx-XX:English (GB) (xx-XX)&xywh=-4174,-277,11956,6093&r=0" width="1000" height="750" allowfullscreen frameborder="0"></iframe>
 </p>
 <p>Scrolling the page zoom in and out works to load the images.</p>
-<h3><p>2. Universal Viewer's share/embed urls no longer responsive to changes in zoom or viewing position. Download current view works.</p></h3>
-<p>In this example from the <a href="https://viewer.library.wales/4717412#?c=&m=&s=&cv=11&manifest=https%3A%2F%2Fdamsssl.llgc.org.uk%2Fiiif%2F2.0%2F4717412%2Fmanifest.json&xywh=1819%2C978%2C1150%2C871">National Library of Wales</a>, the xywh values in the url are responsive - allowing the url to capture and save a particular section and zoom level of an image, and re-use it elsewhere.</p>
+<h3><p>2. Universal Viewer's share urls are no longer responsive to changes in zoom or viewing position. Option to download 'current view' still works.</p></h3>
+<p>In this example from the <a href="https://viewer.library.wales/4717412#?c=&m=&s=&cv=11&manifest=https%3A%2F%2Fdamsssl.llgc.org.uk%2Fiiif%2F2.0%2F4717412%2Fmanifest.json&xywh=1819%2C978%2C1150%2C871">National Library of Wales</a>, the xywh values in the url are responsive - allowing the url to capture and save a particular section and zoom level of an image, and re-use it elsewhere. Now, the url is static when scrolling in and out of <a href="https://librarysearch.cardiff.ac.uk/view/UniversalViewer/44WHELF_CAR/12206137520002420?iiifVersion=2&updateStatistics=false">the viewer.</a></p>
 <p>Being able to capture a section of an image using its url is something I demonstrated during a presentation earlier this year (at 17 minutes in)</p> <iframe width="560" height="315" src="https://www.youtube.com/embed/ywI3tkFO-ts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>I recorded this demo on June 2nd, but when I gave the same demo at an in-person event on 7th, the share link no longer saved the positioning - so something has been changed around that time.</p>
 <p>
-<ul>
-<li><a href="https://librarysearch.cardiff.ac.uk/view/UniversalViewer/44WHELF_CAR/12206137520002420?iiifVersion=2&updateStatistics=false">Direct link to object</a></li>
-<li><a href="https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12206137520002420/manifest?updateStatistics=false?manifest=https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12206137520002420/manifest?updateStatistics=false">Manifest</a></li>
-<li><a href="https://iiif-preview.stephen.wf/p3/bac2add2dc71464685744c29c526a1e6/1659949123364">Direct link to json</a></li>
-</li></p>
-<h3><p>Loading manifest to most viewer prefixes no longer supported</p></h3>
+<h3><p>3. Loading manifest to most viewer prefixes no longer supported</p></h3>
 <p>Manifest fails to load to:</p>
 <ul><li>https://universalviewer.io/uv.html?manifest=,</li>
     <li>https://demo.tify.rocks/demo.html?manifest=,</li>
@@ -38,3 +36,11 @@ Embedding at custom (1000x800) - widening the embedded object doesn't resolve th
 <p>Loading to https://uv-v4.netlify.app/#?manifest= works, and has a responsive url. Embed code taken from here will successfully embed the object, and remember the chosen page, but not the position coordinates. In the example below, I had zoomed into the signature on the second page:</p>
 <p>
 <iframe src="https://uv-v4.netlify.app/uv.html#?manifest=https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12206137520002420/manifest?updateStatistics=false&c=0&m=0&cv=1&config=&locales=en-GB:English (GB),cy-GB:Cymraeg,fr-FR:Français (FR),pl-PL:Polski,sv-SE:Svenska&xywh=672,680,1978,1307&r=0" width="800" height="600" allowfullscreen frameborder="0"></iframe></p>
+<p>
+<h3>Direct links to test object</h3></p>
+<ul>
+    <li><a href="https://librarysearch.cardiff.ac.uk/view/UniversalViewer/44WHELF_CAR/12206137520002420?iiifVersion=2&updateStatistics=false">Direct link to object</a></li>
+    <li><a href="https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12206137520002420/manifest?updateStatistics=false?manifest=https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12206137520002420/manifest?updateStatistics=false">Manifest</a></li>
+    <li><a href="https://iiif-preview.stephen.wf/p3/bac2add2dc71464685744c29c526a1e6/1659949123364">Direct link to json</a></li>
+    </li></p>
+    </ul>
